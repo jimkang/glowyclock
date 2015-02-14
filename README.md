@@ -6,14 +6,9 @@ A little web site that shows a rainbow glowy LCD clock, like the kind my wife us
 Installation
 ------------
 
-1. Clone the repo. 
-
-2.
+Clone the repo, then:
 
     npm install
-
-3.
-
     make build
 
 Open in a browser.
