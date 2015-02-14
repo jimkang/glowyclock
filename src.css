@@ -118,11 +118,10 @@ body {
 	.number-is-0 .bottom-left,
 	.number-is-0 .bottom-center
 	{
-		/* fill: hsl(0, 50%, 50%); */
-    
-    /*-webkit-animation: shift-color 20s linear infinite;*/
-     /*-moz-animation: shift-color 4s linear 0s infinite alternate;*/
-       /*-o-animation: shift-color 4s linear 0s infinite alternate;*/
-          animation: shift-color 20s linear infinite;    
 	}
 }
+
+#color-backing {
+  animation: shift-color 20s linear infinite;
+}
+
