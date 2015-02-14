@@ -82,7 +82,7 @@ body {
 
 .lcd-element {
   fill: hsl(0, 50%, 50%)
-		transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
 }
 
 .lcd-element-active {
@@ -90,8 +90,65 @@ body {
 }
 
 /*
-	all number-is-* classes are applied alongside .digit
-	eg <g class="hour digit digit-1 number-is-3">
-	*/
+all number-is-* classes are applied alongside .digit
+eg <g class="hour digit digit-1 number-is-3">
+*/
 
 /* 1 */
+
+.number-is-1 .top-right,
+.number-is-1 .bottom-right,
+.number-is-2 .top-center,
+.number-is-2 .top-right,
+.number-is-2 .mid-center,
+.number-is-2 .bottom-left,
+.number-is-2 .bottom-center,
+.number-is-3 .top-center,
+.number-is-3 .top-right,
+.number-is-3 .mid-center,
+.number-is-3 .bottom-right,
+.number-is-3 .bottom-center,
+.number-is-4 .top-left,
+.number-is-4 .top-right,
+.number-is-4 .mid-center,
+.number-is-4 .bottom-right,
+.number-is-5 .top-center,
+.number-is-5 .top-left,
+.number-is-5 .mid-center,
+.number-is-5 .bottom-right,
+.number-is-5 .bottom-center,
+.number-is-6 .top-center,
+.number-is-6 .top-left,
+.number-is-6 .mid-center,
+.number-is-6 .bottom-right,
+.number-is-6 .bottom-left,
+.number-is-6 .bottom-center,
+.number-is-7 .top-center,
+.number-is-7 .top-right,
+.number-is-7 .bottom-right,
+.number-is-8 .top-center,
+.number-is-8 .top-left,
+.number-is-8 .top-right,
+.number-is-8 .mid-center,
+.number-is-8 .bottom-right,
+.number-is-8 .bottom-left,
+.number-is-8 .bottom-center,
+.number-is-9 .top-center,
+.number-is-9 .top-left,
+.number-is-9 .top-right,
+.number-is-9 .mid-center,
+.number-is-9 .bottom-right,
+.number-is-9 .bottom-center,
+.number-is-0 .top-center,
+.number-is-0 .top-left,
+.number-is-0 .top-right,
+.number-is-0 .bottom-right,
+.number-is-0 .bottom-left,
+.number-is-0 .bottom-center {
+  opacity: 0;
+}
+
+#color-backing {
+  -webkit-animation: shift-color 20s linear infinite;
+  animation: shift-color 20s linear infinite;
+}

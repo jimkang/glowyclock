@@ -61,7 +61,7 @@ var clock = {
 		clock.toggleDots();
 		clock.updateClock();
 		// update every half second to make dots flash at that rate :)
-		setInterval(clock.updateClock, 500);
+		// setInterval(clock.updateClock, 500);
 
 	}
 
