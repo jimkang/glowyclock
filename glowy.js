@@ -40,14 +40,14 @@ var clock = {
 	},
 
 	toggleDots: function () {
-
 		var num_dots = clock.dots.length;
 
 		for (var i=0; i < num_dots; i++) {
 			if (clock.dotsState === false) {
 				clock.dots[i].classList.add('lcd-element-active');
 				continue;
-			} else {
+			}
+			else {
 				clock.dots[i].classList.remove('lcd-element-active');
 			}
 		}
@@ -56,15 +56,12 @@ var clock = {
 	},
 
 	init: function () {
-
 		clock.toggleDots();
 		clock.updateClock();
-		// update every half second to make dots flash at that rate :)
-		setInterval(clock.updateClock, 500);
+		// update every second to make dots flash at that rate :)
+		setInterval(clock.updateClock, 1000);
 	}
 
 };
-
-
 
 clock.init();

@@ -50,18 +50,6 @@
   }
 }
 
-/*
-@-moz-keyframes shift-color { from fill: hsl(0, 50%, 50%); } to { fill: hsl(360, 50%, 50%);  } }
-@-o-keyframes shift-color { from fill: hsl(0, 50%, 50%); } to { fill: hsl(360, 50%, 50%); } }
-@keyframes shift-color {
-  from {
-    fill: hsl(0, 50%, 50%);
-  } 
-  to {
-    fill: hsl(360, 50%, 50%);
-  } 
-}*/
-
 body {
   background: #3b0209;
   background: #0e023a;
@@ -81,12 +69,12 @@ body {
 /* svg specific css */
 
 .lcd-element {
-  fill: hsl(0, 50%, 50%)
-	transition: all 0.2s ease-out;
+  opacity: 1;
+  transition: all 0.2s ease-out;
 }
 
 .lcd-element-active {
-  fill: hsl(0, 50%, 50%);
+  opacity: 0;
 }
 
 /*
