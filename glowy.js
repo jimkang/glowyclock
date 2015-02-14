@@ -1,8 +1,6 @@
-
 "use strict";
 
 var clock = {
-
 	clocktime: {},
 
   dots: document.querySelectorAll('#lcd-clock .dots'),
@@ -10,11 +8,9 @@ var clock = {
   dotsState: false,
 	
   updateClock: function (){
-
 		var time = new Date();
 		clock.clocktime.hour   = time.getHours();
 		clock.clocktime.minute = time.getMinutes();
-		clock.clocktime.second = time.getSeconds();
 
 		for (var timeUnit in clock.clocktime) {
 			// convert all to values to string,
@@ -58,7 +54,6 @@ var clock = {
 		}
 
 		clock.dotsState = !clock.dotsState;
-
 	},
 
 	init: function(){
@@ -75,5 +70,3 @@ var clock = {
 
 
 clock.init();
-
-
