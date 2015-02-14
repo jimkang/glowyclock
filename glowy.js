@@ -23,24 +23,23 @@ var clock = {
 			clock.clocktime[timeUnit] = clock.clocktime[timeUnit].split('');
 
 			// update each digit for this time unit
-			for (var i=0; i<2; i++) {
+			for (var i = 0; i < 2; ++i) {
 				var selector = '#lcd-clock .'+timeUnit+'.digit-'+(i+1);
 				var className = 'number-is-'+clock.clocktime[timeUnit][i];
 				// remove any pre-existing classname
-				for (var j=0; j<10; j++) {
+				for (var j = 0; j < 10; ++j) {
 					var oldClass = 'number-is-'+j;
 					document.querySelector(selector).classList.remove(oldClass);
 				}
 				// add the relevant classname to the appropriate clock digit
 				document.querySelector(selector).classList.add(className);
 			}
-
 		}
 
 		clock.toggleDots();
 	},
 
-	toggleDots: function(){
+	toggleDots: function () {
 
 		var num_dots = clock.dots.length;
 
@@ -56,13 +55,12 @@ var clock = {
 		clock.dotsState = !clock.dotsState;
 	},
 
-	init: function(){
+	init: function () {
 
 		clock.toggleDots();
 		clock.updateClock();
 		// update every half second to make dots flash at that rate :)
-		// setInterval(clock.updateClock, 500);
-
+		setInterval(clock.updateClock, 500);
 	}
 
 };
