@@ -1,31 +1,31 @@
 .red {
-  fill: hsla(0, 100%, 40%, 1.0);
-  stroke: hsla(0, 100%, 40%, 1.0);
+  fill: hsla(0, 100%, 50%, 1.0);
+  stroke: hsla(0, 100%, 50%, 1.0);
 }
 
 .orange {
-  fill: hsla(18, 100%, 57%, 1.0);
-  stroke: hsla(18, 100%, 57%, 1.0);
+  fill: hsla(18, 100%, 62%, 1.0);
+  stroke: hsla(18, 100%, 62%, 1.0);
 }
 
 .yellow {
-  fill: hsla(48, 100%, 61%, 1);
-  stroke: hsla(48, 100%, 61%, 1);
+  fill: hsla(48, 100%, 66%, 1);
+  stroke: hsla(48, 100%, 66%, 1);
 }
 
 .green {
-  fill: hsla(123, 59%, 40%, 1);
-  stroke: hsla(123, 59%, 40%, 1);
+  fill: hsla(123, 59%, 50%, 1);
+  stroke: hsla(123, 59%, 50%, 1);
 }
 
 .blue {
-  fill: hsla(219, 90%, 42%, 0.8);
-  stroke: hsla(219, 90%, 42%, 0.8);
+  fill: hsla(219, 90%, 52%, 0.8);
+  stroke: hsla(219, 90%, 52%, 0.8);
 }
 
 .purple {
-  fill: hsla(278, 85%, 45%, 1);
-  stroke: hsla(278, 85%, 45%, 1);
+  fill: hsla(278, 85%, 55%, 1);
+  stroke: hsla(278, 85%, 55%, 1);
 }
 
 .fuchsia {
