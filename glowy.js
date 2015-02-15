@@ -25,15 +25,19 @@ var clock = {
 
 			// update each digit for this time unit
 			for (var i = 0; i < 2; ++i) {
+				var displayNumberString = clock.clocktime[timeUnit][i];
 				var selector = '#lcd-clock .'+timeUnit+'.digit-'+(i+1);
-				var className = 'number-is-'+clock.clocktime[timeUnit][i];
+				var className = 'number-is-' + displayNumberString;
 				// remove any pre-existing classname
 				for (var j = 0; j < 10; ++j) {
 					var oldClass = 'number-is-'+j;
 					document.querySelector(selector).classList.remove(oldClass);
 				}
-				// add the relevant classname to the appropriate clock digit
-				document.querySelector(selector).classList.add(className);
+				// add the relevant classname to the appropriate clock digit.
+				// Skip it if this is a padding 0 for the hour.
+				if (i !== 0 || timeUnit !== 'hour' || displayNumberString !== '0') {
+					document.querySelector(selector).classList.add(className);
+				}
 			}
 		}
 
