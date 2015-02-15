@@ -9,7 +9,7 @@ Installation
 Clone the repo, then:
 
     npm install
-    make build
+    make css
 
 Open in a browser.
 
