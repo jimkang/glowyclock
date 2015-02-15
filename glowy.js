@@ -140,7 +140,7 @@
 
     updateClock();
     setInterval(updateClock, 1000);
-    setInterval(shiftColor, 10 * 1000);
+    setInterval(shiftColor, 7 * 1000);
   })());
 
 })());

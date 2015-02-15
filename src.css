@@ -246,5 +246,5 @@ eg <g class="hour digit digit-1 number-is-3">
 }
 
 #color-backing {
-  transition: fill 8s linear, stroke 8s linear;
+  transition: fill 5s linear, stroke 5s linear;
 }
