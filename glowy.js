@@ -9,14 +9,15 @@ var clock = {
 	
   updateClock: function (){
 		var time = new Date();
-		clock.clocktime.hour   = time.getHours();
-		clock.clocktime.minute = time.getMinutes();
+		var localeTimeString = time.toLocaleTimeString();
+		var timeStringPieces = localeTimeString.split(':');
+		clock.clocktime.hour = timeStringPieces[0];
+		clock.clocktime.minute = timeStringPieces[1];
 
 		for (var timeUnit in clock.clocktime) {
 			// convert all to values to string,
 			// pad single values, ie 8 to 08
 	 		// split the values into an array of single characters
-			clock.clocktime[timeUnit] = clock.clocktime[timeUnit].toString();
 			if (clock.clocktime[timeUnit].length == 1) {
 				clock.clocktime[timeUnit] = '0'+clock.clocktime[timeUnit];
 			}
