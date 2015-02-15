@@ -58,7 +58,7 @@ var clock = {
 	init: function () {
 		clock.toggleDots();
 		clock.updateClock();
-		// update every second to make dots flash at that rate :)
+		// Update to make dots flash.
 		setInterval(clock.updateClock, 1000);
 	}
 
