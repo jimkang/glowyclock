@@ -4,7 +4,8 @@
   "description": "A glowy clock.",
   "main": "glowy.js",
   "dependencies": {
-    "myth": "^1.3.0"
+    "myth": "^1.3.0",
+    "probable": "^1.3.0"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,76 +1,44 @@
-@-webkit-keyframes shift-color {
-  0% {
-    /* Red */
-    fill: hsla(0, 100%, 50%, 1.0);
-  }
-
-  17% {
-    /* Orange */
-    fill: hsla(18, 100%, 57%, 1.0);
-  }
-
-  33% {
-    /* Yellow */
-    fill: hsla(48, 100%, 61%, 1);
-  }
-
-  50% {
-    /* Green */
-    fill: hsla(123, 59%, 40%, 1);
-  }
-
-  67% {
-    /* Blue */
-    fill: hsla(219, 90%, 42%, 1);
-  }
-
-  83% {
-    /* Purple */
-    fill: hsla(278, 85%, 45%, 1);
-  }
-
-  100% {
-    /* Red */
-    fill: hsla(0, 100%, 50%, 1.0);
-  }
+.red {
+  fill: hsla(0, 100%, 50%, 1.0);
+  stroke: hsla(0, 100%, 50%, 1.0);
 }
 
-@keyframes shift-color {
-  0% {
-    /* Red */
-    fill: hsla(0, 100%, 50%, 1.0);
-  }
-
-  17% {
-    /* Orange */
-    fill: hsla(18, 100%, 57%, 1.0);
-  }
-
-  33% {
-    /* Yellow */
-    fill: hsla(48, 100%, 61%, 1);
-  }
-
-  50% {
-    /* Green */
-    fill: hsla(123, 59%, 40%, 1);
-  }
-
-  67% {
-    /* Blue */
-    fill: hsla(219, 90%, 42%, 1);
-  }
-
-  83% {
-    /* Purple */
-    fill: hsla(278, 85%, 45%, 1);
-  }
-
-  100% {
-    /* Red */
-    fill: hsla(0, 100%, 50%, 1.0);
-  }
+.orange {
+  fill: hsla(18, 100%, 57%, 1.0);
+  stroke: hsla(18, 100%, 57%, 1.0);
 }
+
+.yellow {
+  fill: hsla(48, 100%, 61%, 1);
+  stroke: hsla(48, 100%, 61%, 1);
+}
+
+.green {
+  fill: hsla(123, 59%, 40%, 1);
+  stroke: hsla(123, 59%, 40%, 1);
+}
+
+.blue {
+  fill: hsla(219, 90%, 42%, 0.8);
+  stroke: hsla(219, 90%, 42%, 0.8);
+}
+
+.purple {
+  fill: hsla(278, 85%, 45%, 1);
+  stroke: hsla(278, 85%, 45%, 1);
+}
+
+.fuchsia {
+  fill: hsla(305, 82%, 69%, 1);
+  stroke: hsla(305, 82%, 69%, 1);
+}
+
+.white {
+  fill: white;
+  stroke: white;
+}
+
+/*Add: pink purple*/
 
 body {
   background: hsl(27, 19%, 9%);
@@ -168,6 +136,5 @@ eg <g class="hour digit digit-1 number-is-3">
 }
 
 #color-backing {
-  -webkit-animation: shift-color 20s linear infinite;
-  animation: shift-color 20s linear infinite;
+  transition: fill 8s linear, stroke 8s linear;
 }

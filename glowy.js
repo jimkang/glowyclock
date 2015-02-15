@@ -2,11 +2,30 @@
 
 var clock = {
 	clocktime: {},
-
   dots: document.querySelectorAll('#lcd-clock .dots'),
-	
   dotsState: false,
-	
+  colorBacking: undefined,
+  colorClasses: [
+  	'red',
+  	'orange',
+  	'yellow',
+  	'green',
+  	'blue',
+  	'purple',
+  	'white',
+  	'fuchsia'
+  ],
+  currentColor: 'red',
+  rainbowIndex: 0,
+  rainbowClasses: [
+  	'red',
+  	'orange',
+  	'yellow',
+  	'green',
+  	'blue',
+  	'purple',
+	],
+
   updateClock: function (){
 		var time = new Date();
 		var localeTimeString = time.toLocaleTimeString();
@@ -47,7 +66,7 @@ var clock = {
 	toggleDots: function () {
 		var num_dots = clock.dots.length;
 
-		for (var i=0; i < num_dots; i++) {
+		for (var i = 0; i < num_dots; i++) {
 			if (clock.dotsState === false) {
 				clock.dots[i].classList.add('lcd-element-active');
 				continue;
@@ -60,11 +79,48 @@ var clock = {
 		clock.dotsState = !clock.dotsState;
 	},
 
+	shiftToRandomColor: function shiftToRandomColor() {
+		var newColor = probable.pickFromArray(
+			clock.without(clock.colorClasses, clock.currentColor)
+		);
+		clock.shiftToColor(newColor);
+	},
+
+	shiftToNextRainbowColor: function shiftToNextRainbowColor() {
+		clock.rainbowIndex += 1;
+		var newColor = clock.rainbowClasses[clock.rainbowIndex];
+		clock.shiftToColor(newColor);
+	},
+
+	shiftColor: function shiftColor() {
+		if (clock.rainbowIndex + 1 < clock.rainbowClasses.length) {
+			clock.shiftToNextRainbowColor();
+		}
+		else {
+			clock.shiftToRandomColor();
+		}
+	},
+
+	shiftToColor: function shiftToColor(newColor) {
+		clock.colorBacking.classList.remove(clock.currentColor);
+		clock.colorBacking.classList.add(newColor);
+		clock.currentColor = newColor;
+	},
+
+	without: function without(array, unwanted) {
+		return array.filter(function isWanted(item) {
+			return item !== unwanted;
+		});
+	},
+
 	init: function () {
+		clock.colorBacking = document.querySelector('#color-backing');
+
 		clock.toggleDots();
 		clock.updateClock();
 		// Update to make dots flash.
-		// setInterval(clock.updateClock, 1000);
+		setInterval(clock.updateClock, 1000);
+		setInterval(clock.shiftColor, 10 * 1000);
 	}
 
 };
