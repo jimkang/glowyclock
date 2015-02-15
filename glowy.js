@@ -1,11 +1,9 @@
-"use strict";
-
-var clock = {
-	clocktime: {},
-  dots: document.querySelectorAll('#lcd-clock .dots'),
-  dotsState: false,
-  colorBacking: undefined,
-  colorClasses: [
+((function clockScope() {
+	clocktime = {};
+  dots = document.querySelectorAll('#lcd-clock .dots');
+  dotsState = false;
+  colorBacking = undefined;
+  colorClasses = [
   	'red',
   	'orange',
   	'yellow',
@@ -14,37 +12,37 @@ var clock = {
   	'purple',
   	'white',
   	'fuchsia'
-  ],
-  currentColor: 'red',
-  rainbowIndex: 0,
-  rainbowClasses: [
+  ];
+  currentColor = 'red';
+  rainbowIndex = 0;
+  rainbowClasses = [
   	'red',
   	'orange',
   	'yellow',
   	'green',
   	'blue',
   	'purple',
-	],
+	];
 
-  updateClock: function (){
+  function updateClock(){
 		var time = new Date();
 		var localeTimeString = time.toLocaleTimeString();
 		var timeStringPieces = localeTimeString.split(':');
-		clock.clocktime.hour = timeStringPieces[0];
-		clock.clocktime.minute = timeStringPieces[1];
+		clocktime.hour = timeStringPieces[0];
+		clocktime.minute = timeStringPieces[1];
 
-		for (var timeUnit in clock.clocktime) {
+		for (var timeUnit in clocktime) {
 			// convert all to values to string,
 			// pad single values, ie 8 to 08
 	 		// split the values into an array of single characters
-			if (clock.clocktime[timeUnit].length == 1) {
-				clock.clocktime[timeUnit] = '0'+clock.clocktime[timeUnit];
+			if (clocktime[timeUnit].length == 1) {
+				clocktime[timeUnit] = '0'+clocktime[timeUnit];
 			}
-			clock.clocktime[timeUnit] = clock.clocktime[timeUnit].split('');
+			clocktime[timeUnit] = clocktime[timeUnit].split('');
 
 			// update each digit for this time unit
 			for (var i = 0; i < 2; ++i) {
-				var displayNumberString = clock.clocktime[timeUnit][i];
+				var displayNumberString = clocktime[timeUnit][i];
 				var selector = '#lcd-clock .'+timeUnit+'.digit-'+(i+1);
 				var className = 'number-is-' + displayNumberString;
 				// remove any pre-existing classname
@@ -60,69 +58,67 @@ var clock = {
 			}
 		}
 
-		clock.toggleDots();
-	},
+		toggleDots();
+	}
 
-	toggleDots: function () {
-		var num_dots = clock.dots.length;
+	function toggleDots() {
+		var num_dots = dots.length;
 
 		for (var i = 0; i < num_dots; i++) {
-			if (clock.dotsState === false) {
-				clock.dots[i].classList.add('lcd-element-active');
+			if (dotsState === false) {
+				dots[i].classList.add('lcd-element-active');
 				continue;
 			}
 			else {
-				clock.dots[i].classList.remove('lcd-element-active');
+				dots[i].classList.remove('lcd-element-active');
 			}
 		}
 
-		clock.dotsState = !clock.dotsState;
-	},
+		dotsState = !dotsState;
+	}
 
-	shiftToRandomColor: function shiftToRandomColor() {
+	function shiftToRandomColor() {
 		var newColor = probable.pickFromArray(
-			clock.without(clock.colorClasses, clock.currentColor)
+			without(colorClasses, currentColor)
 		);
-		clock.shiftToColor(newColor);
-	},
+		shiftToColor(newColor);
+	}
 
-	shiftToNextRainbowColor: function shiftToNextRainbowColor() {
-		clock.rainbowIndex += 1;
-		var newColor = clock.rainbowClasses[clock.rainbowIndex];
-		clock.shiftToColor(newColor);
-	},
+	function shiftToNextRainbowColor() {
+		rainbowIndex += 1;
+		var newColor = rainbowClasses[rainbowIndex];
+		shiftToColor(newColor);
+	}
 
-	shiftColor: function shiftColor() {
-		if (clock.rainbowIndex + 1 < clock.rainbowClasses.length) {
-			clock.shiftToNextRainbowColor();
+	function shiftColor() {
+		if (rainbowIndex + 1 < rainbowClasses.length) {
+			shiftToNextRainbowColor();
 		}
 		else {
-			clock.shiftToRandomColor();
+			shiftToRandomColor();
 		}
-	},
+	}
 
-	shiftToColor: function shiftToColor(newColor) {
-		clock.colorBacking.classList.remove(clock.currentColor);
-		clock.colorBacking.classList.add(newColor);
-		clock.currentColor = newColor;
-	},
+	function shiftToColor(newColor) {
+		colorBacking.classList.remove(currentColor);
+		colorBacking.classList.add(newColor);
+		currentColor = newColor;
+	}
 
-	without: function without(array, unwanted) {
+	function without(array, unwanted) {
 		return array.filter(function isWanted(item) {
 			return item !== unwanted;
 		});
-	},
-
-	init: function () {
-		clock.colorBacking = document.querySelector('#color-backing');
-
-		clock.toggleDots();
-		clock.updateClock();
-		// Update to make dots flash.
-		setInterval(clock.updateClock, 1000);
-		setInterval(clock.shiftColor, 10 * 1000);
 	}
 
-};
+	((function init() {
+		colorBacking = document.querySelector('#color-backing');
 
-clock.init();
+		toggleDots();
+		updateClock();
+		// Update to make dots flash.
+		setInterval(updateClock, 1000);
+		setInterval(shiftColor, 10 * 1000);
+	})());
+
+})());
