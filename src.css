@@ -53,13 +53,18 @@ body {
 }
 
 /* svg specific css */
-.lcd-element {
-  opacity: 0.75;
-	transition: all 0.5s ease-out
+
+@keyframes blink-dots {
+  from {
+    opacity: 0.75;
+  }
+  to {
+    opacity: 0.2;
+  }
 }
 
-.lcd-element-active {
-  opacity: 0.2 !important;
+.dots {
+  animation: blink-dots 1s alternate ease-in-out infinite;
 }
 
 /*
