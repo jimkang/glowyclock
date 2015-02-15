@@ -1,6 +1,6 @@
 .red {
-  fill: hsla(0, 100%, 50%, 1.0);
-  stroke: hsla(0, 100%, 50%, 1.0);
+  fill: hsla(0, 100%, 40%, 1.0);
+  stroke: hsla(0, 100%, 40%, 1.0);
 }
 
 .orange {
@@ -59,7 +59,7 @@ body {
 }
 
 .lcd-element-active {
-  opacity: 0.25 !important;
+  opacity: 0.2 !important;
 }
 
 /*
@@ -141,5 +141,5 @@ eg <g class="hour digit digit-1 number-is-3">
 }
 
 #color-backing {
-  transition: fill 8s linear, stroke 8s linear;
+  transition: fill 7s linear, stroke 7s linear;
 }
