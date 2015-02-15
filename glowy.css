@@ -51,8 +51,7 @@
 }
 
 body {
-  background: #3b0209;
-  background: #0e023a;
+  background: hsl(240, 40%, 15%);
 }
 
 .container {
@@ -133,7 +132,17 @@ eg <g class="hour digit digit-1 number-is-3">
 .number-is-0 .bottom-right,
 .number-is-0 .bottom-left,
 .number-is-0 .bottom-center {
-  opacity: 0;
+  opacity: 0 !important;
+  stroke-opacity: 0 !important;
+}
+
+#stencil-layer .lcd-element {
+  opacity: 0.7;
+  stroke-opacity: 1.0;
+  fill: hsl(240, 40%, 15%);
+  stroke: hsl(240, 40%, 15%);
+  stroke-width: 4;
+  stroke-linejoin: round;
 }
 
 #color-backing {
