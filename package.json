@@ -8,7 +8,13 @@
     "probable": "^1.3.0",
     "uglify-js": "^2.4.16"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "d3": "^3.5.5",
+    "install": "^0.1.8",
+    "npm": "^2.5.1",
+    "queue-async": "^1.0.7",
+    "smash": "0.0.14"
+  },
   "scripts": {
     "test": "open index.html"
   },

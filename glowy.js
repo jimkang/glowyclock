@@ -42,16 +42,18 @@
       for (var i = 0; i < 2; ++i) {
         var displayNumberString = clocktime[timeUnit][i];
         var selector = '#lcd-clock .'+timeUnit+'.digit-'+(i+1);
+        var digit = d3.select(selector);
         var className = 'number-is-' + displayNumberString;
+
         // remove any pre-existing classname
         for (var j = 0; j < 10; ++j) {
           var oldClass = 'number-is-'+j;
-          document.querySelector(selector).classList.remove(oldClass);
+          digit.classed(oldClass, false);
         }
         // add the relevant classname to the appropriate clock digit.
         // Skip it if this is a padding 0 for the hour.
         if (i !== 0 || timeUnit !== 'hour' || displayNumberString !== '0') {
-          document.querySelector(selector).classList.add(className);
+          digit.classed(className, true);
         }
       }
     }
@@ -80,8 +82,10 @@
   }
 
   function shiftToColor(newColor) {
-    colorBacking.classList.remove(currentColor);
-    colorBacking.classList.add(newColor);
+    d3.select(colorBacking)
+      .classed(currentColor, false)
+      .classed(newColor, true);
+
     currentColor = newColor;
   }
 
