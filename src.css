@@ -139,17 +139,17 @@
 }
 
 body {
-	background: hsl(27, 19%, 9%);
+  background: hsl(27, 19%, 9%);
 }
 
 .container {
-	padding-top: 15%;
-	text-align: center;
+  padding-top: 15%;
+  text-align: center;
 }
 
 #lcd-clock {
-	width: 66%; /* set the width of the clock display */
-	margin: 0 auto;
+  width: 66%; /* set the width of the clock display */
+  margin: 0 auto;
 }
 
 /* svg specific css */
