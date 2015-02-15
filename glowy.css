@@ -38,6 +38,106 @@
   stroke: white;
 }
 
+.caramel-brown {
+  fill: hsl(24, 67%, 43%);
+  stroke: hsl(24, 67%, 43%);
+}
+
+.kangaroo-brown {
+  fill: hsl(353, 29%, 41%);
+  stroke: hsl(353, 29%, 41%);
+}
+
+.lettuce-green {
+  fill: hsl(146, 100%, 30%);
+  stroke: hsl(146, 100%, 30%);
+}
+
+.eel-green {
+  fill: hsl(166, 100%, 30%);
+  stroke: hsl(166, 100%, 30%);
+}
+
+.moss-green {
+  fill: hsl(63, 85%, 41%);
+  stroke: hsl(63, 85%, 41%);
+}
+
+.sapphire-blue {
+  fill: hsl(212, 100%, 36%);
+  stroke: hsl(212, 100%, 36%);
+}
+
+.sky-blue {
+  fill: hsl(198, 72%, 68%);
+  stroke: hsl(198, 72%, 68%);
+}
+
+.pool-blue {
+  fill: hsl(193, 100%, 37%);
+  stroke: hsl(193, 100%, 37%);
+}
+
+.onion-purple {
+  fill: hsl(312, 100%, 35%);
+  stroke: hsl(312, 100%, 35%);
+}
+
+.eggplant-purple {
+  fill: hsl(300, 74%, 39%);
+  stroke: hsl(300, 74%, 39%);
+}
+
+.flamingo-pink {
+  fill: hsl(333, 84%, 62%);
+  stroke: hsl(333, 84%, 62%);
+}
+
+.raspberry-pink {
+  fill: hsl(328, 100%, 41%);
+  stroke: hsl(328, 100%, 41%);
+}
+
+.worm-pink {
+  fill: hsl(353, 72%, 56%);
+  stroke: hsl(353, 72%, 56%);
+}
+
+.pepperoni-red {
+  fill: hsl(355, 85%, 54%);
+  stroke: hsl(355, 85%, 54%);
+}
+
+.strawberry-red {
+  fill: hsl(346, 100%, 42%);
+  stroke: hsl(346, 100%, 42%);
+}
+
+.candlelight-orange {
+  fill: hsl(38, 100%, 50%);
+  stroke: hsl(38, 100%, 50%);
+}
+
+.melon-orange {
+  fill: hsl(15, 100%, 61%);
+  stroke: hsl(15, 100%, 61%);
+}
+
+.soap-orange {
+  fill: hsl(12, 100%, 77%);
+  stroke: hsl(12, 100%, 77%);
+}
+
+.duckling-yellow {
+  fill: hsl(45, 94%, 72%);
+  stroke: hsl(45, 94%, 72%);
+}
+
+.corn-yellow {
+  fill: hsl(51, 89%, 60%);
+  stroke: hsl(51, 89%, 60%);
+}
+
 body {
   background: hsl(27, 19%, 9%);
 }
@@ -150,5 +250,5 @@ eg <g class="hour digit digit-1 number-is-3">
 }
 
 #color-backing {
-  transition: fill 7s linear, stroke 7s linear;
+  transition: fill 8s linear, stroke 8s linear;
 }

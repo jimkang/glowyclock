@@ -1,25 +1,64 @@
 ((function clockScope() {
   var clocktime = {};
   var colorBacking = undefined;
-  var colorClasses = [
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'blue',
-    'purple',
-    'white',
-    'fuchsia'
-  ];
+
+  var colorGroups = {
+    reds: [
+      'red',
+      'flamingo-pink',
+      'raspberry-pink',
+      'worm-pink',
+      'pepperoni-red',
+      'strawberry-red',
+    ],
+    oranges: [
+      'orange',
+      'candlelight-orange',
+      'melon-orange',
+      'soap-orange'
+    ],
+    yellows: [
+      'yellow',
+      'ducking-yellow',
+      'corn-yellow'
+    ],
+    greens: [
+      'green',
+      'lettuce-green',
+      'eel-green',
+      'moss-green'
+    ],
+    blues: [
+      'blue',
+      'sapphire-blue',
+      'sky-blue',
+      'pool-blue'
+    ],
+    purples: [
+      'purple',
+      'fuchsia',
+      'onion-purple',
+      'eggplant-purple'
+    ],
+    grays: [
+      'white'
+    ]
+  }
+
+  var colorClasses = [];
+  for (var group in colorGroups) {
+    colorClasses = colorClasses.concat(colorGroups[group]);
+  }
+
   var currentColor = 'red';
   var rainbowIndex = 0;
-  var rainbowClasses = [
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'blue',
-    'purple',
+  var rainbowGroups = [
+    'reds',
+    'oranges',
+    'yellows',
+    'greens',
+    'blues',
+    'purples',
   ];
 
   function updateClock(){
@@ -68,12 +107,13 @@
 
   function shiftToNextRainbowColor() {
     rainbowIndex += 1;
-    var newColor = rainbowClasses[rainbowIndex];
+    var newGroup = rainbowGroups[rainbowIndex];
+    var newColor = probable.pickFromArray(colorGroups[newGroup]);
     shiftToColor(newColor);
   }
 
   function shiftColor() {
-    if (rainbowIndex + 1 < rainbowClasses.length) {
+    if (rainbowIndex + 1 < rainbowGroups.length) {
       shiftToNextRainbowColor();
     }
     else {
