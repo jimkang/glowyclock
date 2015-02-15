@@ -20,7 +20,7 @@
 }
 
 body {
-	background: hsl(240, 40%, 15%);
+	background: hsl(27, 19%, 9%);
 }
 .container {
 	padding-top: 40px;
@@ -114,8 +114,8 @@ eg <g class="hour digit digit-1 number-is-3">
 #stencil-layer .lcd-element {
   opacity: 0.7;
   stroke-opacity: 1.0;
-  fill: hsl(240, 40%, 15%);
-  stroke: hsl(240, 40%, 15%);
+  fill: hsl(27, 19%, 9%);
+  stroke: hsl(27, 19%, 9%);
   stroke-width: 4;
   stroke-linejoin: round;
 }
