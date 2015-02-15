@@ -64,7 +64,7 @@ var clock = {
 		clock.toggleDots();
 		clock.updateClock();
 		// Update to make dots flash.
-		setInterval(clock.updateClock, 1000);
+		// setInterval(clock.updateClock, 1000);
 	}
 
 };

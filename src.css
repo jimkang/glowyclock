@@ -1,30 +1,42 @@
 @keyframes shift-color {
   0% {
-    fill: red;
+     /* Red */
+    fill: hsla(0, 100%, 50%, 1.0);
   } 
-  20% {
-    fill: orange;
+  17% {
+    /* Orange */
+    fill: hsla(18, 100%, 57%, 1.0);
+  }
+  33% {
+    /* Yellow */
+    fill: hsla(48, 100%, 61%, 1);
   } 
-  40% {
-    fill: yellow;
+  50% {
+    /* Green */
+    fill: hsla(123, 59%, 40%, 1);
   } 
-  60% {
-    fill: green;
-  } 
-  80% {
-    fill: #0044ff;
+  67% {
+    /* Blue */
+    fill: hsla(219, 90%, 42%, 1);
+  }
+  83% {
+    /* Purple */
+    fill: hsla(278, 85%, 45%, 1);
   }
   100% {
-    fill: red;
-  }
+     /* Red */
+    fill: hsla(0, 100%, 50%, 1.0);
+  }  
 }
+
+Add: pink purple
 
 body {
 	background: hsl(27, 19%, 9%);
 }
 
 .container {
-	padding-top: 40px;
+	padding-top: 10%;
 	text-align: center;
 }
 
