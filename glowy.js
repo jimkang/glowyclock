@@ -19,7 +19,7 @@
     ],
     yellows: [
       'yellow',
-      'ducking-yellow',
+      'duckling-yellow',
       'corn-yellow'
     ],
     greens: [
