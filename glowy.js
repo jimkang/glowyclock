@@ -135,7 +135,15 @@
     });
   }
 
+  function redirectIfNeeded() {
+    if (window.location.hostname === 'glowyclock.com') {
+      window.location = 'http://jimkang.com/glowyclock';
+    }
+  }
+
   ((function init() {
+    redirectIfNeeded();
+
     colorBacking = document.querySelector('#color-backing');
 
     updateClock();

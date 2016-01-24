@@ -16,3 +16,5 @@ minify: d3select.js
 		glowy.js \
 		-c -m -o glowy.min.js
 
+run:
+	python -m SimpleHTTPServer
