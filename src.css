@@ -246,5 +246,5 @@ eg <g class="hour digit digit-1 number-is-3">
 }
 
 .slow-color-fade {
-  transition: fill 5s linear, stroke 5s linear;
+  transition: fill 12s linear, stroke 12s linear;
 }
