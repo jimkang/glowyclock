@@ -145,6 +145,8 @@
     redirectIfNeeded();
 
     colorBacking = document.querySelector('#color-backing');
+    shiftToRandomColor();
+    d3.select(colorBacking).classed('slow-color-fade', true);
 
     updateClock();
     setInterval(updateClock, 1000);
