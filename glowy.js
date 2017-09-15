@@ -135,15 +135,7 @@
     });
   }
 
-  function redirectIfNeeded() {
-    if (window.location.hostname === 'glowyclock.com') {
-      window.location = 'http://jimkang.com/glowyclock';
-    }
-  }
-
   ((function init() {
-    redirectIfNeeded();
-
     colorBacking = document.querySelector('#color-backing');
     shiftToRandomColor();
     d3.select(colorBacking).classed('slow-color-fade', true);

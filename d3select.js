@@ -1,5 +1,5 @@
 !function(){
-  var d3 = {version: "3.5.5"}; // semver
+  var d3 = {version: "3.5.17"}; // semver
 var d3_arraySlice = [].slice,
     d3_array = function(list) { return d3_arraySlice.call(list); }; // conversion for NodeLists
 var d3_document = this.document;
@@ -123,9 +123,11 @@ function d3_selection_selectorAll(selector) {
     return d3_selectAll(selector, this);
   };
 }
+var d3_nsXhtml = "http://www.w3.org/1999/xhtml";
+
 var d3_nsPrefix = {
   svg: "http://www.w3.org/2000/svg",
-  xhtml: "http://www.w3.org/1999/xhtml",
+  xhtml: d3_nsXhtml,
   xlink: "http://www.w3.org/1999/xlink",
   xml: "http://www.w3.org/XML/1998/namespace",
   xmlns: "http://www.w3.org/2000/xmlns/"
@@ -134,15 +136,9 @@ var d3_nsPrefix = {
 d3.ns = {
   prefix: d3_nsPrefix,
   qualify: function(name) {
-    var i = name.indexOf(":"),
-        prefix = name;
-    if (i >= 0) {
-      prefix = name.slice(0, i);
-      name = name.slice(i + 1);
-    }
-    return d3_nsPrefix.hasOwnProperty(prefix)
-        ? {space: d3_nsPrefix[prefix], local: name}
-        : name;
+    var i = name.indexOf(":"), prefix = name;
+    if (i >= 0 && (prefix = name.slice(0, i)) !== "xmlns") name = name.slice(i + 1);
+    return d3_nsPrefix.hasOwnProperty(prefix) ? {space: d3_nsPrefix[prefix], local: name} : name;
   }
 };
 
@@ -416,9 +412,9 @@ function d3_selection_creator(name) {
   function create() {
     var document = this.ownerDocument,
         namespace = this.namespaceURI;
-    return namespace
-        ? document.createElementNS(namespace, name)
-        : document.createElement(name);
+    return namespace === d3_nsXhtml && document.documentElement.namespaceURI === d3_nsXhtml
+        ? document.createElement(name)
+        : document.createElementNS(namespace, name);
   }
 
   function createNS() {
@@ -600,12 +596,14 @@ d3_selectionPrototype.data = function(value, key) {
           keyValue;
 
       for (i = -1; ++i < n;) {
-        if (nodeByKeyValue.has(keyValue = key.call(node = group[i], node.__data__, i))) {
-          exitNodes[i] = node; // duplicate selection key
-        } else {
-          nodeByKeyValue.set(keyValue, node);
+        if (node = group[i]) {
+          if (nodeByKeyValue.has(keyValue = key.call(node, node.__data__, i))) {
+            exitNodes[i] = node; // duplicate selection key
+          } else {
+            nodeByKeyValue.set(keyValue, node);
+          }
+          keyValues[i] = keyValue;
         }
-        keyValues[i] = keyValue;
       }
 
       for (i = -1; ++i < m;) {
@@ -619,7 +617,7 @@ d3_selectionPrototype.data = function(value, key) {
       }
 
       for (i = -1; ++i < n;) {
-        if (nodeByKeyValue.get(keyValues[i]) !== true) {
+        if (i in keyValues && nodeByKeyValue.get(keyValues[i]) !== true) {
           exitNodes[i] = group[i];
         }
       }
@@ -1078,12 +1076,12 @@ d3.selectAll = function(nodes) {
     group = d3_array(d3_selectAll(nodes, d3_document));
     group.parentNode = d3_document.documentElement;
   } else {
-    group = nodes;
+    group = d3_array(nodes);
     group.parentNode = null;
   }
   return d3_selection([group]);
 };
-  if (typeof define === "function" && define.amd) define(d3);
+  if (typeof define === "function" && define.amd) this.d3 = d3, define(d3);
   else if (typeof module === "object" && module.exports) module.exports = d3;
-  this.d3 = d3;
+  else this.d3 = d3;
 }();
